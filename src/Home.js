@@ -16,7 +16,7 @@ class Home extends Component {
     var base = this
 
     // fetch a poem
-    let mbtaApi = 'https://api-v3.mbta.com/routes';
+    let mbtaApi = 'https://api-v3.mbta.com/routes' + '?api_key=84a7d614ab4e4ef6b1623578a2e9fb09';
     fetch(mbtaApi)
       .then((response) => {
         return response.json()
@@ -27,10 +27,12 @@ class Home extends Component {
               return route
             }
           })
-          console.log(
-            linesArr
-          );
-          base.setState({ routes: linesArr });
+          linesArr.sort((linea, lineb) => linea.attributes.color -lineb.attributes.color)
+          // console.log(
+          //   linesArr
+          // );
+          base.setState({ routes: linesArr.sort((linea, lineb) => linea.attributes.color -lineb.attributes.color)
+ });
           // });
       }).catch((ex) => {
         console.log('An error occured while parsing!', ex)
@@ -40,7 +42,7 @@ class Home extends Component {
   render() {
     let routes = this.state.routes;
     return (
-      <div>
+      <div className="container">
         <h1>MBTA Tracker</h1>
         <Line allLines= {this.state.routes} />
       </div>
