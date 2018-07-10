@@ -68,3 +68,21 @@
   font-weight: bold;
   text-decoration: underline;
 }
+
+.trains-header,
+.alerts-header {
+  overflow: hidden;
+  width: 100%;
+}
+
+.trains-header h3,
+.trains-header .fas,
+.alerts-header h3,
+.alerts-header .fas {
+  float: left;
+  margin-right: 20px;
+}
+
+.open {
+  text-decoration: underline;
+}

@@ -22,11 +22,15 @@ class SingleLine extends Component {
     console.log(this.props.lineData);
     if(this.state.lineShow){
       return (
-        <div>
+        <div className="row">
                 <div className="lines col-md-12" style={{background: '#' + this.props.lineData.attributes.color, color: '#'+ this.props.lineData.attributes.text_color}}><div className="line-border">
-                  <div className="line-header" onClick={this.lineHide}>
-                    <h3 onClick={this.lineHide}>{this.props.lineData.attributes.long_name}</h3>
-                    <h1 onClick={this.lineHide}>-</h1>
+                  <div className="row">
+                    <div className="line-header" onClick={this.lineHide}>
+                      <div className="col-md-12">
+                        <h3 onClick={this.lineHide}>{this.props.lineData.attributes.long_name}</h3>
+                        <h1 onClick={this.lineHide}>-</h1>
+                      </div>
+                    </div>
                   </div>
                     <hr />
                     <div className="row">
@@ -40,10 +44,15 @@ class SingleLine extends Component {
     } else {
       return(
         <div>
+
                 <div className="lines col-md-12" style={{background: '#' + this.props.lineData.attributes.color, color: '#'+ this.props.lineData.attributes.text_color}}><div className="line-border">
+                  <div className="row">
                   <div className="line-header" onClick={this.lineDisplay}>
-                    <h3 onClick={this.lineDisplay}>{this.props.lineData.attributes.long_name}</h3>
-                    <h1 onClick={this.lineDisplay}>+</h1>
+<div className="col-md-12">
+                      <h3 onClick={this.lineDisplay}>{this.props.lineData.attributes.long_name}</h3>
+                      <h1 onClick={this.lineDisplay}>+</h1>
+                    </div>
+                    </div>
                   </div>
                   </div></div>
 

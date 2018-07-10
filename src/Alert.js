@@ -10,6 +10,14 @@ class Alert extends Component {
     }
   }
 
+  alertsDisplay = () => {
+    this.setState({alertsShow: true})
+  }
+
+  alertsHide = () => {
+    this.setState({alertsShow: false})
+  }
+
   componentDidMount() {
     // save a reference to `this` because the value of `this` will change
     // inside the different callback functions.
@@ -57,16 +65,17 @@ class Alert extends Component {
 
   render () {
     let alertshow
-    if (this.state.alerts.length >= 1){
-      alertshow = <AlertLoop lineId= {this.props.lineId} alerts = {this.state.alerts} />
+    if (!this.state.alertsShow) {
+      alertshow = <div className="alerts-header" onClick={this.alertsDisplay}><i className="fas fa-exclamation-triangle"></i><h3>Alerts</h3></div>
+    } else if (this.state.alerts.length >= 1){
+      alertshow = <div><div className="alerts-header" onClick={this.alertsHide}><i className="fas fa-exclamation-triangle"></i><h3 className="open">Alerts</h3></div><AlertLoop lineId= {this.props.lineId} alerts = {this.state.alerts} /></div>
     } else {
-      alertshow = <h4>No alerts to report!</h4>
+      alertshow = <div><div className="alerts-header" onClick={this.alertsHide}><i className="fas fa-exclamation-triangle"></i><h3 className="open">Alerts</h3></div><h4>No alerts to report!</h4></div>
     }
     // console.log(this.props.lineId);
       return (
         <div>
                   <div>
-                  <i class="fas fa-exclamation-triangle"></i>
                   {alertshow}
                   </div>
 
@@ -80,14 +89,27 @@ class AlertLoop extends Component {
   render () {
     return(
       <div>
-        <h4>Alerts for {this.props.lineId}</h4>
         <ul>
           {this.props.alerts.map(function(alert, index){
-              return <li key= {index}>{alert.attributes.header} <br /> <a href={alert.attributes.url} target="_blank">More Info</a></li>
+              return <AlertSingle alert= {alert} index= {index} />
           })}
         </ul>
       </div>
       )
+  }
+}
+
+class AlertSingle extends Component {
+  render () {
+    if (this.props.alert.attributes.url){
+      return(
+        <li key= {this.props.index}>{this.props.alert.attributes.header} <br /> <a href={this.props.alert.attributes.url} target="_blank">More Info</a></li>
+      )
+    } else {
+      return (
+        <li key= {this.props.index}>{this.props.alert.attributes.header}</li>
+      )
+    }
   }
 }
 

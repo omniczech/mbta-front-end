@@ -7,10 +7,19 @@ class TrainsOnLine extends Component {
     this.state = {
       trains: "",
       direction0: "",
-      direction1: ""
+      direction1: "",
+      trainsShow: false
     }
   }
   // mixins() {[TimerMixin]}
+
+  trainsDisplay = () => {
+    this.setState({trainsShow: true})
+  }
+
+  trainsHide = () => {
+    this.setState({trainsShow: false})
+  }
 
   apiCall = (e) => {
     // save a reference to `this` because the value of `this` will change
@@ -97,14 +106,28 @@ class TrainsOnLine extends Component {
 
 
   render () {
-    // console.log(this.state.trains);
+    let trains
+    if(this.state.trainsShow) {
+      trains = <div><div onClick={this.trainsHide} className="trains-header"><i className="fas fa-subway"></i><h3 className="open">Trains Running</h3></div><TrainsSingle trains={this.state.trains} lineDirections={this.props.lineDirections} direction0={this.state.direction0} direction1={this.state.direction1} /></div>
+    } else {
+      trains = <div onClick={this.trainsDisplay} className="trains-header"><i className="fas fa-subway"></i><h3>Trains Running</h3></div>
+    }
     return (
       <div>
-        <i class="fas fa-subway"></i>
-        <h4>Total Trains: <strong>{this.state.trains.length}</strong></h4>
-        <h4>Trains on this line {this.props.lineDirections[0]}: <strong>{this.state.direction0.length}</strong></h4>
-        <h4>Trains on this line {this.props.lineDirections[1]}: <strong>{this.state.direction1.length}</strong></h4>
 
+        {trains}
+      </div>
+    )
+  }
+}
+
+class TrainsSingle extends Component {
+  render() {
+    return (
+      <div>
+      <h4>Total Trains: <strong>{this.props.trains.length}</strong></h4>
+        <h4>Trains on this line {this.props.lineDirections[0]}: <strong>{this.props.direction0.length}</strong></h4>
+        <h4>Trains on this line {this.props.lineDirections[1]}: <strong>{this.props.direction1.length}</strong></h4>
       </div>
     )
   }
