@@ -29,7 +29,7 @@ class TrainsOnLine extends Component {
           })
           let dir0 = json.data.filter(train => train.attributes.direction_id === 0)
           let dir1 = json.data.filter(train => train.attributes.direction_id === 1)
-          console.log('Trains for this line', linesArr.length)
+          // console.log('Trains for this line', linesArr.length)
           base.setState({ trains: linesArr });
           base.setState({ direction0: dir0 });
           base.setState({ direction1: dir1 });
@@ -83,7 +83,7 @@ class TrainsOnLine extends Component {
           })
           let dir0 = json.data.filter(train => train.attributes.direction_id === 0)
           let dir1 = json.data.filter(train => train.attributes.direction_id === 1)
-          console.log('Trains for this line', linesArr.length)
+          // console.log('Trains for this line', linesArr.length)
           base.setState({ trains: linesArr });
           base.setState({ direction0: dir0 });
           base.setState({ direction1: dir1 });
@@ -97,12 +97,13 @@ class TrainsOnLine extends Component {
 
 
   render () {
-    console.log(this.state.trains);
+    // console.log(this.state.trains);
     return (
       <div>
-        <p>Total Trains: {this.state.trains.length}</p>
-        <p>Trains on this line {this.props.lineDirections[0]}: {this.state.direction0.length}</p>
-        <p>Trains on this line {this.props.lineDirections[1]}: {this.state.direction1.length}</p>
+        <i class="fas fa-subway"></i>
+        <h4>Total Trains: <strong>{this.state.trains.length}</strong></h4>
+        <h4>Trains on this line {this.props.lineDirections[0]}: <strong>{this.state.direction0.length}</strong></h4>
+        <h4>Trains on this line {this.props.lineDirections[1]}: <strong>{this.state.direction1.length}</strong></h4>
 
       </div>
     )
