@@ -8,7 +8,7 @@ class TrainsOnLine extends Component {
       trains: "",
       direction0: "",
       direction1: "",
-      trainsShow: false
+      trainsShow: true
     }
   }
   // mixins() {[TimerMixin]}

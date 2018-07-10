@@ -70,7 +70,8 @@
 }
 
 .trains-header,
-.alerts-header {
+.alerts-header,
+.map-header {
   overflow: hidden;
   width: 100%;
 }
@@ -78,11 +79,23 @@
 .trains-header h3,
 .trains-header .fas,
 .alerts-header h3,
-.alerts-header .fas {
+.alerts-header .fas,
+.map-header h3,
+.map-header .fas {
   float: left;
   margin-right: 20px;
 }
 
 .open {
   text-decoration: underline;
+}
+
+.leaflet-container {
+  color:#555;
+  height: 480px;
+}
+
+.leaflet-container a {
+  color: #555;
+  text-decoration: none;
 }

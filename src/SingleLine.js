@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TrainsOnLine from './TrainsOnLine.js';
 import Alert from './Alert.js';
+import LineMap from './Map.js';
 
 class SingleLine extends Component {
   constructor(props) {
@@ -36,6 +37,11 @@ class SingleLine extends Component {
                     <div className="row">
                       <div className="col-md-4"><TrainsOnLine lineId= {this.props.lineData.id} lineDirections={this.props.lineData.attributes.direction_names} /></div>
                       <div className="col-md-8"><Alert lineId= {this.props.lineData.id} /></div>
+                    </div>
+                    <div className="row">
+                      <div className="col-md-12">
+                        <LineMap lineId= {this.props.lineData.id} color={this.props.lineData.attributes.color} lineDirections={this.props.lineData.attributes.direction_names} />
+                      </div>
                     </div>
                   </div></div>
 
