@@ -27,12 +27,34 @@
   to { transform: rotate(360deg); }
 }
 
+body {
+  /* background-image: url(./images/mbta-bg.jpg); */
+  background-size: cover;
+}
+
+.pseudo-bg {
+  background-image: url(./images/mbta-bg.jpg);
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+h1.header {
+  color: #fff;
+  text-shadow: 0 0 8px #000;
+}
+
 .lines {
   box-sizing: border-box;
   float: left;
   padding: 5px;
   border-radius: 20px;
   margin-bottom: 20px;
+  box-shadow: 2px 2px 5px #000;
 }
 
 .fa,
@@ -46,6 +68,7 @@
   border: 2px solid white;
   border-radius: 15px;
   padding: 10px 10px 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
 }
 
 .line-header {

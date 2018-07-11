@@ -43,8 +43,9 @@ class Home extends Component {
     let routes = this.state.routes;
     return (
       <div className="container">
-        <h1>MBTA Tracker</h1>
+        <h1 className="header">MBTA Train Tracker</h1>
         <Line allLines= {this.state.routes} />
+        <div className="pseudo-bg"></div>
       </div>
      )
   }
