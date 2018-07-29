@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import TrainsOnLine from './TrainsOnLine.js';
 
 class Alert extends Component {
   constructor(props) {
@@ -42,7 +41,6 @@ class Alert extends Component {
     this.interval = setInterval(() => {
       // save a reference to `this` because the value of `this` will change
       // inside the different callback functions.
-      var base = this
       // fetch a poem
       let mbtaApi = 'https://api-v3.mbta.com/alerts?route=' + this.props.lineId;
 

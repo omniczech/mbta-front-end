@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Map, TileLayer, Marker, CircleMarker, Popup } from 'react-leaflet'
+import { Map, TileLayer, CircleMarker, Popup } from 'react-leaflet'
 
 class LineMap extends Component {
   constructor() {
