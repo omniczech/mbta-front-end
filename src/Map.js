@@ -73,9 +73,6 @@ class LineMap extends Component {
     const color = "#" + this.props.color
     const direction0Name = this.props.lineDirections[0]
     const direction1Name = this.props.lineDirections[1]
-    let trainsLoc = this.state.trains.map(function(train, index){
-        return [train.attributes.latitude, train.attributes.longitude, train.id]
-    })
     let trainsLocDir0 = this.state.direction0.map(function(train, index){
         return [train.attributes.latitude, train.attributes.longitude, train.id]
     })

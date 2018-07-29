@@ -16,7 +16,7 @@ class Home extends Component {
     var base = this
 
     // fetch a poem
-    let mbtaApi = 'https://api-v3.mbta.com/routes' + '?api_key=84a7d614ab4e4ef6b1623578a2e9fb09';
+    let mbtaApi = 'https://api-v3.mbta.com/routes?api_key=84a7d614ab4e4ef6b1623578a2e9fb09';
     fetch(mbtaApi)
       .then((response) => {
         return response.json()
@@ -40,7 +40,6 @@ class Home extends Component {
   }
 
   render() {
-    let routes = this.state.routes;
     return (
       <div className="container">
         <h1 className="header">MBTA Train Tracker</h1>
